@@ -1,6 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Login User";
+﻿@model ProyectoPNT_MVC.Models.Usuario
+
+@{
+    ViewData["Title"] = "Iniciar Sesion";
 }
 
 
-<h1>Proximamente!</h1>
+<h3>Completá tus datos</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="LoginUser">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nombreUsuario" class="control-label"></label>
+                <input asp-for="nombreUsuario" class="form-control" />
+                <span asp-validation-for="nombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contraseña" class="control-label"></label>
+                <input asp-for="contraseña" class="form-control" />
+                <span asp-validation-for="contraseña" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Iniciar Sesion" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

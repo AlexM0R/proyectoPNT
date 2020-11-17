@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoPNT_MVC.Context;
 using ProyectoPNT_MVC.Models;
+using System.Web;
+using Microsoft.AspNetCore.Http;
 
 namespace ProyectoPNT_MVC.Controllers
 {
@@ -22,6 +24,7 @@ namespace ProyectoPNT_MVC.Controllers
         // GET: Usuario
         public async Task<IActionResult> Index()
         {
+            ViewBag.sessionv = HttpContext.Session.GetString("LoginUsuario");
             return View(await _context.Usuarios.ToListAsync());
         }
 
@@ -159,6 +162,22 @@ namespace ProyectoPNT_MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LoginUser(String nombreUsuario, String contraseña) {
+            if (ModelState.IsValid) {
+                var usuario = _context.Usuarios.Where(u => u.nombreUsuario.Equals(nombreUsuario) && u.contraseña.Equals(contraseña)).FirstOrDefault();
+                if (usuario != null)
+                {
+                    HttpContext.Session.SetString("LoginUsuario",usuario.nombreUsuario);
+                    return RedirectToAction(nameof(Index));
+                }
+
+            }
+            HttpContext.Session.SetString("LoginUsuario", "");
+            return View();
+        }
         private bool UsuarioExists(int id)
         {
             return _context.Usuarios.Any(e => e.id == id);

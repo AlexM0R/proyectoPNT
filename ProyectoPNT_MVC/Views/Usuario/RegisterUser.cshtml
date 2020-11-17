@@ -1,7 +1,7 @@
 ﻿@model ProyectoPNT_MVC.Models.Usuario
 
 @{
-    ViewData["Title"] = "Register User";
+    ViewData["Title"] = "Registro";
 }
 
 
@@ -17,6 +17,11 @@
                 <span asp-validation-for="nombreUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="mail" class="control-label"></label>
+                <input asp-for="mail" class="form-control" />
+                <span asp-validation-for="mail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="nombreCompleto" class="control-label"></label>
                 <input asp-for="nombreCompleto" class="form-control" />
                 <span asp-validation-for="nombreCompleto" class="text-danger"></span>
@@ -30,11 +35,6 @@
                 <label asp-for="direccion" class="control-label"></label>
                 <input asp-for="direccion" class="form-control" />
                 <span asp-validation-for="direccion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="mail" class="control-label"></label>
-                <input asp-for="mail" class="form-control" />
-                <span asp-validation-for="mail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="tipoUsuario" class="control-label"></label>
