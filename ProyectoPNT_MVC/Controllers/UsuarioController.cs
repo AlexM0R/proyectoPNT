@@ -177,15 +177,6 @@ namespace ProyectoPNT_MVC.Controllers
             return View();
         }
 
-        public int searchUser(String nombreUsuario) {
-            var usuario = _context.Usuarios.Where(u => u.nombreUsuario.Equals(nombreUsuario)).FirstOrDefault();
-            var retorno = -1;
-            if(usuario != null) {
-                retorno = usuario.id;
-            }
-            return retorno;
-        }
-
         public ActionResult LogoutUser()
         {
             HttpContext.Session.SetString("LoginUsuario", "");
