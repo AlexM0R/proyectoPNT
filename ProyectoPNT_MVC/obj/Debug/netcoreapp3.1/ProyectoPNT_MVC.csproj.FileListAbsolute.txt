@@ -184,3 +184,8 @@ C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp
 C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Articulo\Edit.cshtml.g.cs
 C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Articulo\Index.cshtml.g.cs
 C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\_Articulo.cshtml.g.cs
+C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Create.cshtml.g.cs
+C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Delete.cshtml.g.cs
+C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Details.cshtml.g.cs
+C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Edit.cshtml.g.cs
+C:\Users\alexu\source\repos\ProyectoPNT_MVC\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Index.cshtml.g.cs
