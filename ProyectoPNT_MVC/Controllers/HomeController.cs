@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProyectoPNT_MVC.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ProyectoPNT_MVC.Controllers
 {

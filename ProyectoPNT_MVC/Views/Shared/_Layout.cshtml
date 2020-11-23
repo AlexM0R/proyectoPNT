@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,6 +12,14 @@
 
 </head>
 <body>
+    @{
+        var esVisible = true;
+        var sesionUsuario = Html.ViewContext.HttpContext.Session.GetString("LoginUsuario");
+        if (!String.IsNullOrEmpty(sesionUsuario))
+        {
+            esVisible = false;
+        }
+    }
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -20,17 +30,20 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Articulo" asp-action="Index">Articulos</a>
-                        </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="@(esVisible ? "display:block" : "display:none !important")">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="LoginUser">Iniciar Sesion</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="@(esVisible ? "display:block" : "display:none !important")">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="RegisterUser">Registrarse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Articulo" asp-action="Create">Crear Articulo</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Articulo" asp-action="Index">Articulos</a>
+                        </li>
+                        <li class="nav-item" style="@(!esVisible ? "display:block" : "display:none !important")">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Edit" asp-route-id=@sesionUsuario>Editar Usuario</a>
+                        </li>
+                        <li class="nav-item" style="@(!esVisible ? "display:block" : "display:none !important")">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="LogoutUser">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>

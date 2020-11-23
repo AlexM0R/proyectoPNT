@@ -40,7 +40,11 @@ namespace ProyectoPNT_MVC
 
             //CONFIGURACION DEL ESTADO 'SESSION'
             services.AddDistributedMemoryCache();
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = "loginSession";
+                options.Cookie.IsEssential = true;
+            });
 
         }
 
@@ -62,6 +66,7 @@ namespace ProyectoPNT_MVC
 
             app.UseRouting();
 
+            // USES SESSION
             app.UseSession();
 
             app.UseAuthorization();

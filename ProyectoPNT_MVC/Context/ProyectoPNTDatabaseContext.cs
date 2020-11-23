@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProyectoPNT_MVC.Models;
+using Microsoft.Extensions.Configuration;
 
 
 namespace ProyectoPNT_MVC.Context
@@ -11,14 +12,17 @@ namespace ProyectoPNT_MVC.Context
     public class ProyectoPNTDatabaseContext : DbContext
     {
         public
-        ProyectoPNTDatabaseContext(DbContextOptions<ProyectoPNTDatabaseContext> options)
+        ProyectoPNTDatabaseContext(DbContextOptions<ProyectoPNTDatabaseContext> options, IConfiguration configuration)
         : base(options)
         {
+            Configuration = configuration;
         }
+
+        public IConfiguration Configuration { get; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\ServidorLocal;Database=ProyectoPNTDB;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

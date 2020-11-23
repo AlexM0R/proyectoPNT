@@ -24,7 +24,6 @@ namespace ProyectoPNT_MVC.Controllers
         // GET: Usuario
         public async Task<IActionResult> Index()
         {
-            ViewBag.sessionv = HttpContext.Session.GetString("LoginUsuario");
             return View(await _context.Usuarios.ToListAsync());
         }
 
@@ -170,13 +169,27 @@ namespace ProyectoPNT_MVC.Controllers
                 var usuario = _context.Usuarios.Where(u => u.nombreUsuario.Equals(nombreUsuario) && u.contraseña.Equals(contraseña)).FirstOrDefault();
                 if (usuario != null)
                 {
-                    HttpContext.Session.SetString("LoginUsuario",usuario.nombreUsuario);
+                    HttpContext.Session.SetString("LoginUsuario", usuario.id.ToString());
                     return RedirectToAction(nameof(Index));
                 }
 
             }
-            HttpContext.Session.SetString("LoginUsuario", "");
             return View();
+        }
+
+        public int searchUser(String nombreUsuario) {
+            var usuario = _context.Usuarios.Where(u => u.nombreUsuario.Equals(nombreUsuario)).FirstOrDefault();
+            var retorno = -1;
+            if(usuario != null) {
+                retorno = usuario.id;
+            }
+            return retorno;
+        }
+
+        public ActionResult LogoutUser()
+        {
+            HttpContext.Session.SetString("LoginUsuario", "");
+            return RedirectToAction(nameof(LoginUser));
         }
         private bool UsuarioExists(int id)
         {
