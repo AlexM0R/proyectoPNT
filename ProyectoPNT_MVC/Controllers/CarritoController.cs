@@ -160,10 +160,19 @@ namespace ProyectoPNT_MVC.Controllers
 
         public async Task<IActionResult> crearCarrito(int id, int idUser)
         {
-            Carrito c = new Carrito();
-            c.articuloId = id;
-            c.usuarioId = idUser;
-            _context.Add(c);
+            var carrito = await _context.Carrito.FindAsync(id, idUser);
+            if (carrito == null) {
+                Carrito c = new Carrito();
+                c.articuloId = id;
+                c.usuarioId = idUser;
+                c.cantArticulos = 1;
+                _context.Add(c);
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+
+            carrito.cantArticulos++;
+            _context.Update(carrito);
             await _context.SaveChangesAsync();
             return NoContent();
         }

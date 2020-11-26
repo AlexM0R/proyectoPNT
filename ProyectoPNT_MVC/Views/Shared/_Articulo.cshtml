@@ -5,6 +5,24 @@
 
 @{
     var sesionUsuario = Html.ViewContext.HttpContext.Session.GetString("LoginUsuario");
+
+    var esVisible = true;
+    if (!String.IsNullOrEmpty(sesionUsuario))
+    {
+        esVisible = false;
+    }
+
+    @functions{
+        public String seMuestra(Boolean esVisible)
+        {
+            String retorno = "display:block";
+            if (!esVisible)
+            {
+                retorno = "display:none !important";
+            }
+            return retorno;
+        }
+    }
 }
 
 @foreach (var item in Model)
@@ -32,10 +50,7 @@
             @Html.DisplayFor(modelItem => item.talle)
         </td>
         <td>
-            <a asp-action="Edit" asp-route-id=" @item.id">Edit</a> |
-            <a asp-action="Details" asp-route-id=" @item.id">Details</a> |
-            <a asp-action="Delete" asp-route-id=" @item.id">Delete</a> |
-            <a asp-controller="Carrito" asp-action="crearCarrito" asp-route-id="@item.id" asp-route-idUser="@sesionUsuario">Agregar al Carrito</a>
+            <a style="@seMuestra(!esVisible)" asp-controller="Carrito" asp-action="crearCarrito" asp-route-id="@item.id" asp-route-idUser="@sesionUsuario">Agregar al Carrito</a>
         </td>
     </tr>
 }

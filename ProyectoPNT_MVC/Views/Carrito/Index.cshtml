@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.usuario)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantArticulos)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,19 +32,20 @@
         {
             Boolean validacion = item.usuarioId.ToString().Equals(sesionUsuario);
             if (validacion) { 
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.articulo.descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.usuario.nombreUsuario)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.articulo.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuario.nombreUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantArticulos)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
             }
         }
     </tbody>

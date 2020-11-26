@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoPNT_MVC.Context;
 
 namespace ProyectoPNT_MVC.Migrations
 {
     [DbContext(typeof(ProyectoPNTDatabaseContext))]
-    partial class ProyectoPNTDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20201126004920_Carrito_Agrego_cantArticulos")]
+    partial class Carrito_Agrego_cantArticulos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

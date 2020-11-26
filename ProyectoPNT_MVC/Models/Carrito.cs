@@ -15,5 +15,7 @@ namespace ProyectoPNT_MVC.Models
         public int usuarioId { get; set; }
         public Usuario usuario{ get; set; }
 
+        public int cantArticulos { get; set; }
+
     }
 }
