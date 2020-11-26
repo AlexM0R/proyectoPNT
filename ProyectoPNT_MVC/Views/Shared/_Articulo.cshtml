@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+
+@model IEnumerable<ProyectoPNT_MVC.Models.Articulo>
+
+@{
+    var sesionUsuario = Html.ViewContext.HttpContext.Session.GetString("LoginUsuario");
+}
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroArticulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            <img src="@Url.Content(item.imagen)" height="150" ;>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.talle)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id=" @item.id">Edit</a> |
+            <a asp-action="Details" asp-route-id=" @item.id">Details</a> |
+            <a asp-action="Delete" asp-route-id=" @item.id">Delete</a> |
+            <a asp-controller="Carrito" asp-action="crearCarrito" asp-route-id="@item.id" asp-route-idUser="@sesionUsuario">Agregar al Carrito</a>
+        </td>
+    </tr>
+}

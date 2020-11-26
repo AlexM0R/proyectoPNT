@@ -158,6 +158,16 @@ namespace ProyectoPNT_MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> crearCarrito(int id, int idUser)
+        {
+            Carrito c = new Carrito();
+            c.articuloId = id;
+            c.usuarioId = idUser;
+            _context.Add(c);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
         private bool CarritoExists(int id)
         {
             return _context.Carrito.Any(e => e.articuloId == id);

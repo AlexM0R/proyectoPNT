@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Lista de Articulos";
+    Html.AntiForgeryToken();
 }
 
 <h1>Lista de Articulos</h1>
@@ -33,35 +34,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.numeroArticulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                <img src= "@Url.Content(item.imagen)" height="150px";>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.talle)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
-            </td>
-        </tr>
-}
+        <input type="text" hidden name="__RequestVerificationToken" />
+        <partial name="../Shared/_Articulo.cshtml" />
     </tbody>
 </table>
