@@ -5,36 +5,137 @@
     Html.AntiForgeryToken();
 }
 
-<h1>Lista de Articulos</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.numeroArticulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.imagen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.talle)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <input type="text" hidden name="__RequestVerificationToken" />
-        <partial name="../Shared/_Articulo.cshtml" />
-    </tbody>
-</table>
+
+<div class="row mt-4 mb-5">
+    <aside class="col border-right">
+        <div id="sexo">
+            <h5>Sexo</h5>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="sexo"
+                       id="sexoMujer"
+                       value="mujer"
+                       checked />
+                <label class="form-check-label" for="sexoMujer"> Mujer </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="sexo"
+                       id="sexoHombre"
+                       value="hombre" />
+                <label class="form-check-label" for="sexoHombre"> Hombre </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="sexo"
+                       id="sexoUni"
+                       value="ambos" />
+                <label class="form-check-label" for="sexoUni"> Ambos </label>
+            </div>
+        </div>
+        <div id="talle" class="mt-3">
+            <h5>Talle</h5>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="talle"
+                       id="talleS"
+                       value="option1"
+                       checked />
+                <label class="form-check-label" for="talleS"> Small </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="talle"
+                       id="talleM"
+                       value="option2" />
+                <label class="form-check-label" for="talleM"> Medium </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="talle"
+                       id="talleL"
+                       value="option3" />
+                <label class="form-check-label" for="talleL"> Large </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="talle"
+                       id="talleXL"
+                       value="option4" />
+                <label class="form-check-label" for="talleXL">
+                    Extra-Large
+                </label>
+            </div>
+        </div>
+        <div id="Tipo Indumentaria" class="mt-3">
+            <h5>Indumentaria</h5>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="remeras" />
+                <label class="form-check-label" for="remeras"> Remeras </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="camperas" />
+                <label class="form-check-label" for="camperas"> Camperas </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="buzos" />
+                <label class="form-check-label" for="buzos"> Buzos </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="jeans" />
+                <label class="form-check-label" for="jeans"> Jeans </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="joggings" />
+                <label class="form-check-label" for="joggings"> Joggings </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="zapatillas" />
+                <label class="form-check-label" for="zapatillas">
+                    Zapatillas
+                </label>
+            </div>
+        </div>
+    </aside>
+    <section class="col-8">
+        <div class="row justify-content-between">
+            <partial name="../Shared/_Articulo.cshtml" />
+        </div>
+    </section>
+    <aside class="col">
+        <div class="float-right mt-3">
+            <h6>Añadir Articulo</h6>
+            <a asp-controller="Articulo" asp-action="Create">
+                <img src="/images/anadir.png"
+                     id="añadir"
+                     alt="aniadir.png"
+                     class="icon" />
+            </a>
+        </div>
+    </aside>
+</div>

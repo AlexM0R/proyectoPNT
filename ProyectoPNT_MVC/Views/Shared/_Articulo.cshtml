@@ -27,30 +27,19 @@
 
 @foreach (var item in Model)
 {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.numeroArticulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            <img src="@Url.Content(item.imagen)" height="150" ;>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.talle)
-        </td>
-        <td>
-            <a style="@seMuestra(!esVisible)" asp-controller="Carrito" asp-action="crearCarrito" asp-route-id="@item.id" asp-route-idUser="@sesionUsuario">Agregar al Carrito</a>
-        </td>
-    </tr>
+<div class="col-4 text-center">
+    <div class="opcionesArticulo">
+        <a style="@seMuestra(!esVisible)" asp-controller="Carrito" asp-action="crearCarrito" asp-route-id="@item.id" asp-route-idUser="@sesionUsuario">
+            <img src="~/images/anadir.png" class="icon" alt="añadir.png" />
+        </a>
+    </div>
+    <img src="@Url.Content(item.imagen)"
+         alt="remera-gris"
+         height="200"
+         width="200"
+         class="articulo" />
+    <p>@item.nombre - $@item.precio</p>
+    <p>Stock: @item.stock</p>
+    
+</div>
 }
