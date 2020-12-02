@@ -46,118 +46,6 @@ namespace ProyectoPNT_MVC.Controllers
             return View(carrito);
         }
 
-        // GET: Carrito/Create
-        public IActionResult Create()
-        {
-            ViewData["articuloId"] = new SelectList(_context.Articulos, "id", "descripcion");
-            ViewData["usuarioId"] = new SelectList(_context.Usuarios, "id", "contraseña");
-            return View();
-        }
-
-        // POST: Carrito/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("articuloId,usuarioId")] Carrito carrito)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(carrito);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["articuloId"] = new SelectList(_context.Articulos, "id", "descripcion", carrito.articuloId);
-            ViewData["usuarioId"] = new SelectList(_context.Usuarios, "id", "contraseña", carrito.usuarioId);
-            return View(carrito);
-        }
-
-        // GET: Carrito/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var carrito = await _context.Carrito.FindAsync(id);
-            if (carrito == null)
-            {
-                return NotFound();
-            }
-            ViewData["articuloId"] = new SelectList(_context.Articulos, "id", "descripcion", carrito.articuloId);
-            ViewData["usuarioId"] = new SelectList(_context.Usuarios, "id", "contraseña", carrito.usuarioId);
-            return View(carrito);
-        }
-
-        // POST: Carrito/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("articuloId,usuarioId")] Carrito carrito)
-        {
-            if (id != carrito.articuloId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(carrito);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CarritoExists(carrito.articuloId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["articuloId"] = new SelectList(_context.Articulos, "id", "descripcion", carrito.articuloId);
-            ViewData["usuarioId"] = new SelectList(_context.Usuarios, "id", "contraseña", carrito.usuarioId);
-            return View(carrito);
-        }
-
-        // GET: Carrito/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var carrito = await _context.Carrito
-                .Include(c => c.articulo)
-                .Include(c => c.usuario)
-                .FirstOrDefaultAsync(m => m.articuloId == id);
-            if (carrito == null)
-            {
-                return NotFound();
-            }
-
-            return View(carrito);
-        }
-
-        // POST: Carrito/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var carrito = await _context.Carrito.FindAsync(id);
-            _context.Carrito.Remove(carrito);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
         public async Task<IActionResult> crearCarrito(int id, int idUser)
         {
             var carrito = await _context.Carrito.FindAsync(id, idUser);
@@ -175,6 +63,31 @@ namespace ProyectoPNT_MVC.Controllers
             _context.Update(carrito);
             await _context.SaveChangesAsync();
             return NoContent();
+        }
+
+        public async Task<IActionResult> eliminarArticuloCarrito(int id, int idUser) {
+            var carrito = await _context.Carrito
+                .Include(c => c.articulo)
+                .Include(c => c.usuario)
+                .FirstOrDefaultAsync(m => m.articuloId == id && m.usuarioId == idUser);
+            if (carrito == null) {
+                return NotFound();
+            }
+
+            if (carrito.cantArticulos > 1)
+            {
+                carrito.cantArticulos--;
+                _context.Update(carrito);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else if (carrito.cantArticulos == 1) {
+                _context.Remove(carrito);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return NotFound();
         }
 
         private bool CarritoExists(int id)

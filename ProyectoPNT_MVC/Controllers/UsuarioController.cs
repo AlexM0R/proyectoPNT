@@ -27,24 +27,6 @@ namespace ProyectoPNT_MVC.Controllers
             return View(await _context.Usuarios.ToListAsync());
         }
 
-        // GET: Usuario/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
         // GET: Usuario/Create
         public IActionResult Create()
         {
@@ -76,7 +58,7 @@ namespace ProyectoPNT_MVC.Controllers
                 usuario.comprasId = usuario.id;
                 usuario.deseadosId = usuario.id;
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(LoginUser));
             }
             return View(usuario);
         }
@@ -132,35 +114,6 @@ namespace ProyectoPNT_MVC.Controllers
             return View(usuario);
         }
 
-        // GET: Usuario/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
-        // POST: Usuario/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var usuario = await _context.Usuarios.FindAsync(id);
-            _context.Usuarios.Remove(usuario);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -170,7 +123,7 @@ namespace ProyectoPNT_MVC.Controllers
                 if (usuario != null)
                 {
                     HttpContext.Session.SetString("LoginUsuario", usuario.id.ToString());
-                    return RedirectToAction(nameof(Index));
+                    return View("Views/Home/Index.cshtml");
                 }
 
             }
@@ -180,7 +133,7 @@ namespace ProyectoPNT_MVC.Controllers
         public ActionResult LogoutUser()
         {
             HttpContext.Session.SetString("LoginUsuario", "");
-            return RedirectToAction(nameof(LoginUser));
+            return View("Views/Home/Index.cshtml");
         }
         private bool UsuarioExists(int id)
         {
