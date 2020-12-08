@@ -63,23 +63,20 @@ body{
 }
 
 .box {
-    background-color: #cccccc;
+    background-color: #343a40;
     border-radius: 10px;
     margin: auto;
     width: 70%;
     padding: 10px;
 }
 
-.reg-form {
+.form {
     margin: auto;
     padding: 30px;
+    color:white;
 }
 
-.form-control {
-    margin-bottom: 50px !important;
-}
-
-.reg-button {
+.form-button {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;

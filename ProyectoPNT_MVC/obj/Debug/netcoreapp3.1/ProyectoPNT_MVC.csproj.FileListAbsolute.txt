@@ -343,10 +343,7 @@ E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Articul
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Articulo\Details.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Articulo\Edit.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Articulo\Index.cshtml.g.cs
-E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Create.cshtml.g.cs
-E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Delete.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Details.cshtml.g.cs
-E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Edit.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Carrito\Index.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -354,9 +351,6 @@ E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Articulo.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Create.cshtml.g.cs
-E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Delete.cshtml.g.cs
-E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Details.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Edit.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Index.cshtml.g.cs
 E:\Projects\.NET\PNT\ProyectoPNT_MVC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\LoginUser.cshtml.g.cs
