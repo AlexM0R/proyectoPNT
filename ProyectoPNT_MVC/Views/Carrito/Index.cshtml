@@ -7,46 +7,47 @@
     var sesionUsuario = Html.ViewContext.HttpContext.Session.GetString("LoginUsuario");
 }
 
-<h1>Index</h1>
+<section class="text-center mt-3">
+    <h1>Tu Carrito</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.articulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cantArticulos)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            Boolean validacion = item.usuarioId.ToString().Equals(sesionUsuario);
-            if (validacion) { 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.articulo.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.usuario.nombreUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cantArticulos)
-            </td>
-            <td>
-                <a asp-action="eliminarArticuloCarrito" asp-route-id="@item.articuloId" asp-route-idUser="@item.usuarioId">Eliminar Articulo</a>
-            </td>
-        </tr>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.articulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.articulo.precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantArticulos)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                Boolean validacion = item.usuarioId.ToString().Equals(sesionUsuario);
+                if (validacion)
+                {
+                    <tr>
+                        <td>
+                            <img src="@Url.Content(item.articulo.imagen)" height="50" width="50" class="articulo"/> 
+                            @Html.DisplayFor(modelItem => item.articulo.descripcion)
+                        </td>
+                        <td>
+                            $@Html.DisplayFor(modelItem => item.articulo.precio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cantArticulos)
+                        </td>
+                        <td>
+                            <a asp-action="eliminarArticuloCarrito" asp-route-id="@item.articuloId" asp-route-idUser="@item.usuarioId">Quitar 1 Articulo</a>
+                        </td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</section>

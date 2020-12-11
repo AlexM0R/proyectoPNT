@@ -7,8 +7,8 @@
 <section class="mt-4 text-center">
     <h3>Completá tus datos</h3>
     <hr />
-    <div class="box">
-        <form asp-action="Create" class="form">
+    <form asp-action="Create" class="form">
+        <div class="box">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="form-group col-5 ml-5 mr-5">
@@ -48,13 +48,14 @@
                     <span asp-validation-for="tipoUsuario" class="text-danger"></span>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+        <div class="form-group form-button">
+            <input type="submit" value="Registrar" class="btn btn-primary" />
+        </div>
+    </form>
 </section>
 
-<div class="form-group form-button">
-    <input type="submit" value="Registrar" class="btn btn-primary" />
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

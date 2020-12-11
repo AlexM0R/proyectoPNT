@@ -18,6 +18,7 @@ namespace ProyectoPNT_MVC.Models
         public int numeroArticulo { get; set; }
 
         [Required]
+        [Display (Name = "Precio")]
         public double precio { get; set; }
 
         [Required]

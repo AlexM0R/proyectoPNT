@@ -46,10 +46,6 @@ body{
     margin-left: 35px;
 }
 
-.articulo {
-    height: 200px;
-}
-
 .opcionesArticulo {
     position: absolute;
     top: 2%;
@@ -91,3 +87,6 @@ body{
 .btn-primary:hover {
     background-color: #3c4c53 !important;
 }
+
+/* Views/Carrito/Index
+------------------------------------------------- */
