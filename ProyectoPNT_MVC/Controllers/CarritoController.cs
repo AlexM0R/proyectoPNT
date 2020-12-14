@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoPNT_MVC.Context;
 using ProyectoPNT_MVC.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ProyectoPNT_MVC.Controllers
 {
@@ -46,8 +47,11 @@ namespace ProyectoPNT_MVC.Controllers
             return View(carrito);
         }
 
-        public async Task<IActionResult> crearCarrito(int id, int idUser)
+        [HttpPost, ActionName("AgregarCarrito")]
+        public async Task<IActionResult> crearCarrito(int id, String idUsuario)
         {
+            var idUser = Int32.Parse(idUsuario);
+
             var carrito = await _context.Carrito.FindAsync(id, idUser);
             if (carrito == null) {
                 Carrito c = new Carrito();
