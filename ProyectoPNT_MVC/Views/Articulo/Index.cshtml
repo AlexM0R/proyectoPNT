@@ -4,38 +4,7 @@
     ViewData["Title"] = "Lista de Articulos";
     Html.AntiForgeryToken();
 
-    const int TOTAL_ARTICULOS = 6;
-
     var sesionUsuario = Html.ViewContext.HttpContext.Session.GetString("LoginUsuario");
-
-    //Variables para mostrar los articulos segun la seleccion del usuario
-    String sexo = "";
-    String talle = "";
-    String[] tiposDeRopa = new String[TOTAL_ARTICULOS];
-
-    //Testeo para probar su funcion
-    talle = "L";
-    tiposDeRopa[0] ="Gorra";
-    tiposDeRopa[1] = "Pantalon";
-
-
-    var esVisible = true;
-    if (!String.IsNullOrEmpty(sesionUsuario))
-    {
-        esVisible = false;
-    }
-
-    @functions{
-        public String seMuestra(Boolean esVisible)
-        {
-            String retorno = "display:block";
-            if (!esVisible)
-            {
-                retorno = "display:none !important";
-            }
-            return retorno;
-        }
-    }
 
 }
 
@@ -121,7 +90,7 @@
         </div>
     </aside>
     <section class="col-10">
-        <div id="listaArticulos" class="row justify-content-between">
+        <div id="listaArticulos" class="row">
         </div>
     </section>
     <input type="hidden" class="sessionUsuario" id="@sesionUsuario"/>

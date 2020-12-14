@@ -35,7 +35,7 @@ function mostrarArticulos() {
         success: function (e) {
             $("#listaArticulos").empty();
             $.each(e, function (i, articulo) {
-                $("#listaArticulos").append("<div class='col-4 text-center'><div class='opcionesArticulo'><div class='seMuestra'><input type='image' src='images/anadir.png' class='icon mr-4 agregarCarrito' onClick='agregarCarrito(" + articulo.id + ")' alt='aniadir.png'/></div></div><img src='" + articulo.imagen + "' height='200' width='200' /><p>" + articulo.nombre + " - " + articulo.precio + "</p><p>Stock: " + articulo.stock + "</p></div>");
+                $("#listaArticulos").append("<div class='col-4 text-center'><div class='opcionesArticulo'><div class='seMuestra'><input type='image' src='images/anadir.png' class='icon mr-4 agregarCarrito' onClick='agregarCarrito(" + articulo.id + ")' alt='aniadir.png'/></div></div><img src='" + articulo.imagen + "' height='200' width='200' /><p>" + articulo.nombre + " - $" + articulo.precio + "</p><p>Stock: " + articulo.stock +" - Talle: "+ articulo.talle +"</p></div>");
             })
             seMuestra(idUsuario);
         }

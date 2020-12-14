@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexu\\source\\repos\\ProyectoPNT_MVC\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj": {}
+    "E:\\Projects\\.NET\\PNT\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexu\\source\\repos\\ProyectoPNT_MVC\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj": {
+    "E:\\Projects\\.NET\\PNT\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexu\\source\\repos\\ProyectoPNT_MVC\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj",
+        "projectUniqueName": "E:\\Projects\\.NET\\PNT\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj",
         "projectName": "ProyectoPNT_MVC",
-        "projectPath": "C:\\Users\\alexu\\source\\repos\\ProyectoPNT_MVC\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj",
-        "packagesPath": "C:\\Users\\alexu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexu\\source\\repos\\ProyectoPNT_MVC\\ProyectoPNT_MVC\\obj\\",
+        "projectPath": "E:\\Projects\\.NET\\PNT\\ProyectoPNT_MVC\\ProyectoPNT_MVC.csproj",
+        "packagesPath": "C:\\Users\\TKMAFIA\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\.NET\\PNT\\ProyectoPNT_MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alexu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TKMAFIA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
