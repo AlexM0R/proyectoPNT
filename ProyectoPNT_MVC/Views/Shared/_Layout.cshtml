@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AGA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    @{
+        var esVisible = true;
+        var sesionUsuario = Html.ViewContext.HttpContext.Session.GetString("LoginUsuario");
+        if (!String.IsNullOrEmpty(sesionUsuario))
+        {
+            esVisible = false;
+        }
+
+        @functions{
+            public String seMuestra(Boolean esVisible) {
+                String retorno = "display:block";
+                if (!esVisible) {
+                    retorno = "display:none !important";
+                }
+                return retorno;
+            }
+        }
+    }
+    <header>
+        <!--logo banner-->
+        <nav class="navbar navbar-light bg-dark">
+            <!--Div hecho con el proposito de repartir bien los elementos por el navbar-->
+            <div class="d-flex ml-4" style="@seMuestra(esVisible)">
+                <a class="text-light mr-3"
+                        asp-area="" asp-controller="Usuario" asp-action="LoginUser">
+                    Iniciar Sesión
+                </a>
+                <a class="text-light"
+                        asp-area="" asp-controller="Usuario" asp-action="RegisterUser">
+                    Registrarse
+                </a>
+            </div>
+            <div class="d-flex ml-4" style="@seMuestra(!esVisible)">
+                <img src="~/images/user.png"
+                     alt="admin.png"
+                     class="icon" />
+                <div class="dropdown show">
+                    <button class="btn btn-outline-secondary btn-sm ml-2 text-light"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                        Usuario
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuario" asp-action="Edit" asp-route-id=@sesionUsuario>Editar</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuario" asp-action="LogoutUser">Cerrar sesión</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Div hecho con el proposito de repartir bien los elementos por el navbar-->
+            <div style="@seMuestra(!esVisible)">
+                <a asp-area="" asp-controller="Carrito" asp-action="Index"><img src="~/images/carro.png" alt="carro.png" class="mr-4 icon" /></a>
+            </div>
+        </nav>
+
+        <!--navbar de la página-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse justify-content-center"
+                 id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" asp-area="" asp-controller="Articulo" asp-action="Index">Indumentaria</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+    <main role="main" class="container">
+            @RenderBody()
+    </main>
+
+    <footer class="bg-dark text-light" id="footer">
+        <div class="text-center py-3">
+            &copy; 2020 - AGA - <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidad</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

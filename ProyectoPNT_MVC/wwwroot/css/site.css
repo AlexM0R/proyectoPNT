@@ -1,0 +1,92 @@
+﻿/* Layout styles
+-------------------------------------------------- */
+body{
+    margin-bottom:50px;
+}
+#footer {
+    position: fixed;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
+}
+
+/* Home/Index styles
+-------------------------------------------------- */
+.imgIndex {
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+/* Views/Articulos/Index & _Articulos
+------------------------------------------------- */
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown > .dropdown-toggle:active {
+    pointer-events: none;
+}
+
+.icon {
+    opacity: 0.5;
+    height: 30px;
+}
+
+    .icon:hover {
+        opacity: 1;
+    }
+
+#añadir {
+    margin-left: 35px;
+}
+
+.opcionesArticulo {
+    position: absolute;
+    top: 2%;
+    right: 12%;
+}
+
+/* Views/Usuario/RegisterUser
+------------------------------------------------- */
+#reg-header {
+    background-color: #475b63;
+}
+
+.box {
+    background-color: #343a40;
+    border-radius: 10px;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.form {
+    margin: auto;
+    padding: 30px;
+    color:white;
+}
+
+.form-button {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #475b63 !important;
+}
+
+.btn-primary:hover {
+    background-color: #3c4c53 !important;
+}
+
+/* Views/Carrito/Index
+------------------------------------------------- */
